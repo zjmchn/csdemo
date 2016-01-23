@@ -1,0 +1,12 @@
+{
+	"image_name": "csdemo/logstash-k2e",
+	"run": [
+             {
+		"name":"logstash-k2e-0",
+                "namespace":"/csdemo/logstach/k2e/0",
+                "e":["ELASTICSEARCH_SERVICE_CLUSTER=elasticsearch"],
+                "requires":["elasticsearch=/csdemo/elasticsearch", "kafka=/csdemo/kafka" ],
+                "command": "logstash -f /etc/logstash/conf.d/main.conf"
+	     }
+        ]
+}

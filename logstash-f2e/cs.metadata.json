@@ -1,0 +1,12 @@
+{
+	"image_name": "csdemo/logstash-f2e",
+	"run": [
+             {
+		"name":"logstash-f2e-0",
+                "namespace":"/csdemo/logstach/f2e/0",
+                "requires":["elasticsearch=/csdemo/elasticsearch"],
+                "e":["ELASTICSEARCH_CLUSTER=elasticsearch"],
+                "command": "logstash -f /etc/logstash/conf.d/main.conf"
+	     }
+        ]
+}

@@ -1,0 +1,22 @@
+{
+	"image_name": "csdemo/kafka",
+        "service_name": "kafka",
+        "p":["31090:9092","31808:8080"],
+        "namespace":"/csdemo/kafka",
+        "requires":["zookeeper=/csdemo/zookeeper"],
+        "replicas":"1",
+	"run": [
+             {
+		"name":"kafka",
+		"p":["9092"],
+                "e":["KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181","KAFKA_CREATE_TOPICS=logstash:1:1"]
+	     },
+             {
+                "name":"kafkamonitor",
+                "image_name": "csdemo/kafka-monitor",
+                "p":["8080"],
+                "e":["ZOOKEEPER_CONNECT=zookeeper:2181"],
+                "health_check":"/"
+             }
+        ]
+}

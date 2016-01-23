@@ -1,0 +1,13 @@
+{
+	"image_name": "csdemo/zookeeper",
+        "service_name": "zookeeper",
+        "p":["31081:2181"],
+        "namespace":"/csdemo/zookeeper",
+        "replicas":"1",
+	"run": [
+             {
+		"name":"zookeeper",
+		"p":["2181","2888","3888"]
+	     }
+        ]
+}

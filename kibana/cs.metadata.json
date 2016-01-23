@@ -1,0 +1,16 @@
+{
+	"image_name": "csdemo/kibana",
+        "service_name": "kibana",
+        "p":["31056:5601"],
+        "namespace":"/csdemo/kibana",
+        "requires":["elasticsearch=/msdemo/elasticsearch"],
+        "replicas":"1",
+	"run": [
+             {
+		"name":"kibana",
+		"p":["5601"],
+                "e":["ELASTICSEARCH_URL=http://elasticsearch:9200"],
+                "health_check":"/"
+	     }
+        ]
+}

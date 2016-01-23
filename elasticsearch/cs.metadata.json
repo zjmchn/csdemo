@@ -1,0 +1,15 @@
+{
+	"image_name": "csdemo/elasticsearch",
+        "service_name": "elasticsearch",
+        "p":["31092:9200"],
+        "namespace":"/csdemo/elasticsearch",
+        "replicas":"1",
+	"run": [
+             {
+		"name":"elasticsearch",
+		"p":["9200"],
+                "e":["CLUSTER_NAME=elasticsearch","SELECTOR=name=elasticsearch","NAMESPACE=csdemo"],
+                "health_check": "/"
+	     }
+        ]
+}

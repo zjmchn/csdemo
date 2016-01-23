@@ -1,0 +1,16 @@
+FROM java
+
+RUN groupadd -r logstash && useradd -r -g logstash logstash
+
+ADD pkgs/gosu-amd64 /usr/local/bin/gosu
+ADD pkgs/logstash-1.5.6.tar.gz /opt/
+
+RUN mv /opt/logstash-1.5.6 /opt/logstash
+
+ENV PATH /opt/logstash/bin:$PATH
+
+COPY main.conf /etc/logstash/conf.d/
+COPY docker-entrypoint.sh /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["logstash", "agent"]
