@@ -3,7 +3,7 @@
         "service_name": "kibana",
         "p":["31056:5601"],
         "namespace":"/csdemo/kibana",
-        "requires":["elasticsearch=/msdemo/elasticsearch"],
+        "requires":["elasticsearch=/csdemo/elasticsearch"],
         "replicas":"1",
 	"run": [
              {

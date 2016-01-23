@@ -5,7 +5,7 @@
 		"name":"logstash-f2e-0",
                 "namespace":"/csdemo/logstach/f2e/0",
                 "requires":["elasticsearch=/csdemo/elasticsearch"],
-                "e":["ELASTICSEARCH_CLUSTER=elasticsearch"],
+                "e":["ELASTICSEARCH_SERVICE_CLUSTER=elasticsearch"],
                 "command": "logstash -f /etc/logstash/conf.d/main.conf"
 	     }
         ]
