@@ -1,0 +1,25 @@
+{
+	"image_name": "csdemo/logstash",
+	"run": [
+             {
+		"name":"logstash-f2e",
+                "namespace":"/csdemo/logstach/f2e",
+                "requires":["elasticsearch=/csdemo/elasticsearch"],
+                "e":["ELASTICSEARCH_SERVICE_CLUSTER=elasticsearch"],
+                "command": "logstash -f /etc/logstash/conf.d/f2e.conf"
+	     },
+             {
+                "name":"logstash-f2k",
+                "namespace":"/csdemo/logstach/f2k",
+                "requires":["kafka=/csdemo/kafka"],
+                "command": "logstash -f /etc/logstash/conf.d/f2k.conf"
+             },
+             {
+                "name":"logstash-k2e",
+                "namespace":"/csdemo/logstach/k2e",
+                "e":["ELASTICSEARCH_SERVICE_CLUSTER=elasticsearch"],
+                "requires":["elasticsearch=/csdemo/elasticsearch", "kafka=/csdemo/kafka" ],
+                "command": "logstash -f /etc/logstash/conf.d/k2e.conf"
+             }
+        ]
+}

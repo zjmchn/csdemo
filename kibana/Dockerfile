@@ -4,7 +4,7 @@ RUN groupadd -r kibana && useradd -r -g kibana kibana
 
 ADD pkgs/gosu-amd64 /usr/local/bin/gosu
 
-ADD https://download.elastic.co/kibana/kibana/kibana-4.1.4-linux-x64.tar.gz /opt/
+ADD http://download.elastic.co/kibana/kibana/kibana-4.1.4-linux-x64.tar.gz /opt/
 
 RUN cd /opt && tar zxvf kibana-4.1.4-linux-x64.tar.gz && \
     mv kibana-4.1.4-linux-x64 kibana && \
