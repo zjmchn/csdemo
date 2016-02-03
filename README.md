@@ -1,2 +1,2 @@
 ### Readme ###
-A cs tool demo applicatio
+A cs tool demo application
